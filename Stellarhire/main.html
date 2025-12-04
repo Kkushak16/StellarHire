@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellarHire - Unified Placement & Internship Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero-bg {
+            background-color: #0B1120;
+            background-image:
+                radial-gradient(at 47% 33%, hsl(200.00, 0%, 100%) 0, transparent 59%),
+                radial-gradient(at 82% 65%, hsl(215.00, 70%, 55%) 0, transparent 55%);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900">
+                <span class="text-indigo-600">Stellar</span>Hire 🎯
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#problem" class="text-gray-600 hover:text-indigo-600 transition-colors">The Problem</a>
+                <a href="#solution" class="text-gray-600 hover:text-indigo-600 transition-colors">Our Solution</a>
+                <a href="#tech" class="text-gray-600 hover:text-indigo-600 transition-colors">Tech Stack</a>
+                <a href="#impact" class="text-gray-600 hover:text-indigo-600 transition-colors">Impact</a>
+            </nav>
+            <a href="#contact" class="hidden md:block bg-indigo-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-transform hover:scale-105 shadow-md">Get Started</a>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#problem" class="block py-2 text-gray-600 hover:text-indigo-600">The Problem</a>
+            <a href="#solution" class="block py-2 text-gray-600 hover:text-indigo-600">Our Solution</a>
+            <a href="#tech" class="block py-2 text-gray-600 hover:text-indigo-600">Tech Stack</a>
+            <a href="#impact" class="block py-2 text-gray-600 hover:text-indigo-600">Impact</a>
+            <a href="#contact" class="block mt-4 bg-indigo-600 text-white text-center px-5 py-2 rounded-lg font-semibold hover:bg-indigo-700">Get Started</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg text-white relative overflow-hidden">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Unifying Placements, Empowering Futures.</h1>
+                <p class="text-lg md:text-xl text-indigo-200 max-w-3xl mx-auto mb-8">
+                    A license-free, AI-powered portal to streamline internships and placements for students, colleges, and companies.
+                </p>
+                <a href="#solution" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-100 transition-all transform hover:scale-105 shadow-2xl">Discover the Solution</a>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section id="problem" class="py-20 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">The Broken Placement Process</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">The current system is a maze of confusion for everyone involved.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Problem Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-6">
+                            <i data-lucide="messages-square" class="h-8 w-8 text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Disorganized Communication</h3>
+                        <p class="text-gray-600">Scattered PDFs and endless WhatsApp groups lead to missed opportunities and constant "chase cycles" for students.</p>
+                    </div>
+                    <!-- Problem Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform">
+                         <div class="flex items-center justify-center h-16 w-16 rounded-full bg-yellow-100 mb-6">
+                            <i data-lucide="file-spreadsheet" class="h-8 w-8 text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Manual Overload</h3>
+                        <p class="text-gray-600">Placement cells are buried in spreadsheets and manual workflows, taking time away from actual career mentoring.</p>
+                    </div>
+                    <!-- Problem Card 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform">
+                         <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-6">
+                            <i data-lucide="bar-chart-horizontal-big" class="h-8 w-8 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Lack of Transparency</h3>
+                        <p class="text-gray-600">Institutions lack real-time data on placement metrics, making strategic decisions and reporting difficult.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Solution Section -->
+        <section id="solution" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">The StellarHire Solution</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">A single source of truth for all stakeholders, designed for efficiency and clarity.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+                        <i data-lucide="user-round" class="h-10 w-10 text-indigo-600 mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Student-Centric Profiles</h3>
+                        <p class="text-gray-600 text-sm">One digital profile with resumes, skills, and certificates for seamless applications.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+                         <i data-lucide="layout-dashboard" class="h-10 w-10 text-indigo-600 mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Placement Cell Tools</h3>
+                        <p class="text-gray-600 text-sm">Verified postings, automated workflows, scheduling, and institutional dashboards.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+                         <i data-lucide="brain-circuit" class="h-10 w-10 text-indigo-600 mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">AI-Powered Matching</h3>
+                        <p class="text-gray-600 text-sm">Recommends best-fit roles for students, reducing missed deadlines and irrelevant applications.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+                         <i data-lucide="award" class="h-10 w-10 text-indigo-600 mb-4"></i>
+                        <h3 class="text-lg font-bold mb-2">Verifiable Employability Record</h3>
+                        <p class="text-gray-600 text-sm">A continuous record of internships, feedback, and auto-generated certificates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works Section -->
+        <section class="py-20 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">End-to-End Automated Workflow</h2>
+                    <p class="text-lg text-gray-600 mt-2 max-w-2xl mx-auto">From profile creation to placement, every step is simplified.</p>
+                </div>
+                <div class="relative">
+                    <!-- Dashed line for desktop -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-indigo-200 -translate-y-1/2"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-y-12 md:gap-x-8 relative">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold border-4 border-slate-100 mb-4 z-10">1</div>
+                            <h3 class="font-semibold">Student Profile</h3>
+                            <p class="text-sm text-gray-500">Create a unified digital resume.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold border-4 border-slate-100 mb-4 z-10">2</div>
+                            <h3 class="font-semibold">Job Posting</h3>
+                            <p class="text-sm text-gray-500">Companies post verified roles.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold border-4 border-slate-100 mb-4 z-10">3</div>
+                            <h3 class="font-semibold">AI Matching</h3>
+                            <p class="text-sm text-gray-500">Best-fit roles recommended.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold border-4 border-slate-100 mb-4 z-10">4</div>
+                            <h3 class="font-semibold">Application</h3>
+                            <p class="text-sm text-gray-500">Students apply with one click.</p>
+                        </div>
+                         <!-- Step 5 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold border-4 border-slate-100 mb-4 z-10">5</div>
+                            <h3 class="font-semibold">Interview & Feedback</h3>
+                            <p class="text-sm text-gray-500">Scheduling and feedback automated.</p>
+                        </div>
+                        <!-- Step 6 -->
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold border-4 border-slate-100 mb-4 z-10">6</div>
+                            <h3 class="font-semibold">Employability Record</h3>
+                            <p class="text-sm text-gray-500">Experience is verified and recorded.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Approach Section -->
+        <section id="tech" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Technology Stack</h2>
+                    <p class="text-lg text-gray-600 mt-2">Built with modern, scalable, and open-source technologies.</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-xl border border-gray-200">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+                        <div class="flex flex-col items-center">
+                            <img src="https://placehold.co/80x80/EFEFFF/6366F1?text=React" alt="React.js" class="h-16 w-16 mb-2">
+                            <p class="font-semibold">React.js</p>
+                            <p class="text-sm text-gray-500">Frontend</p>
+                        </div>
+                         <div class="flex flex-col items-center">
+                            <img src="https://placehold.co/80x80/F0F9FF/0EA5E9?text=Node" alt="Node.js" class="h-16 w-16 mb-2">
+                            <p class="font-semibold">Node.js</p>
+                            <p class="text-sm text-gray-500">Backend</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                           <img src="https://placehold.co/80x80/FFFBEB/F59E0B?text=Python" alt="Python" class="h-16 w-16 mb-2">
+                            <p class="font-semibold">Python</p>
+                            <p class="text-sm text-gray-500">AI Engine</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="https://placehold.co/80x80/ECFDF5/10B981?text=Mongo" alt="MongoDB" class="h-16 w-16 mb-2">
+                            <p class="font-semibold">MongoDB</p>
+                            <p class="text-sm text-gray-500">Database</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="https://placehold.co/80x80/F1F5F9/475569?text=AWS" alt="AWS" class="h-16 w-16 mb-2">
+                            <p class="font-semibold">AWS/GCP</p>
+                             <p class="text-sm text-gray-500">Deployment</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact and Benefits Section -->
+        <section id="impact" class="py-20 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Transformative Impact & Benefits</h2>
+                    <p class="text-lg text-gray-600 mt-2">Creating value for every stakeholder in the ecosystem.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Benefit 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                         <div class="flex items-center text-green-600 mb-4">
+                             <i data-lucide="users" class="h-8 w-8 mr-3"></i>
+                             <h3 class="text-xl font-bold">Social Benefits</h3>
+                         </div>
+                        <p class="text-gray-600">Equal access to verified opportunities reduces student anxiety and levels the playing field for career growth.</p>
+                    </div>
+                    <!-- Benefit 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                        <div class="flex items-center text-blue-600 mb-4">
+                             <i data-lucide="dollar-sign" class="h-8 w-8 mr-3"></i>
+                             <h3 class="text-xl font-bold">Economic Benefits</h3>
+                         </div>
+                        <p class="text-gray-600">A low-cost, license-free system saves significant institutional resources and reduces financial burdens.</p>
+                    </div>
+                    <!-- Benefit 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                         <div class="flex items-center text-teal-600 mb-4">
+                             <i data-lucide="leaf" class="h-8 w-8 mr-3"></i>
+                             <h3 class="text-xl font-bold">Environmental Benefits</h3>
+                         </div>
+                        <p class="text-gray-600">Dramatically reduces paper-based processes including forms, resumes, and physical certificates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <section id="contact" class="py-20 bg-indigo-700 text-white">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Revolutionize Your Placements?</h2>
+                 <p class="text-lg text-indigo-200 max-w-2xl mx-auto mb-8">
+                    Join us in building the future of career services. Let's connect and discuss how StellarHire can help your institution.
+                 </p>
+                 <button class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-indigo-100 transition-all transform hover:scale-105 shadow-2xl">Contact Our Team</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 StellarHire. All rights reserved. A Hackathon Project.</p>
+             <p class="text-sm text-gray-400 mt-2">Built with passion and a desire to improve student futures.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Hide mobile menu on click
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
