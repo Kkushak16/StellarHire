@@ -1,2 +1,879 @@
-<h1>This is the 2nd website</h1>
-<p>this website was created during my hackathon days in this website we tried to create a website for schools and colleges to manage their data.</p>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad - Study Material</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Animations */
+        @keyframes slideInFromLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-slide-left {
+            animation: slideInFromLeft 0.7s ease-out forwards;
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .animate-slide-down {
+            animation: slideDown 0.3s ease-out forwards;
+        }
+        
+        /* Utility for selection color */
+        ::selection {
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Custom styling for disabled button */
+        .btn-disabled {
+            background-color: #4b5563; /* slate-600 */
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none;
+            transform: none;
+        }
+        .btn-disabled:hover {
+            background-color: #4b5563;
+        }
+        
+        /* Ensure the main content is fully visible initially */
+        #home, #projects, #contact {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <!-- Brand Name Changed to Unidad -->
+            <div class="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                Unidad
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-sm font-medium transition-colors hover:text-blue-400 text-blue-400" data-section="home">Home</a>
+                <a href="#course-selection-view" class="nav-link text-sm font-medium transition-colors hover:text-blue-400 text-slate-300" data-section="about">Courses</a>
+                <a href="#projects" class="nav-link text-sm font-medium transition-colors hover:text-blue-400 text-slate-300" data-section="projects">Materials</a>
+                <a href="#contact" class="nav-link text-sm font-medium transition-colors hover:text-blue-400 text-slate-300" data-section="contact">Contact</a>
+                <button class="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-full text-sm font-medium transition-all transform hover:scale-105 shadow-lg shadow-blue-500/20">
+                    Get Started
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                <!-- Menu Icon -->
+                <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+                <!-- X Icon (Hidden by default) -->
+                <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-slate-900 border-b border-slate-800 animate-slide-down">
+            <a href="#home" class="mobile-nav-link block w-full text-left px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-blue-400 transition-colors">Home</a>
+            <a href="#course-selection-view" class="mobile-nav-link block w-full text-left px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-blue-400 transition-colors">Courses</a>
+            <a href="#projects" class="mobile-nav-link block w-full text-left px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-blue-400 transition-colors">Materials</a>
+            <a href="#contact" class="mobile-nav-link block w-full text-left px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-blue-400 transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 animate-slide-left">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-blue-400 text-sm font-medium">
+                    <span class="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></span>
+                    Author: Kushak Dohare
+                </div>
+                
+                <!-- H1 Text: Adjusted for mobile (text-5xl) and desktop (md:text-7xl) -->
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+                    Unidad <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                        (Everything you need)
+                    </span>
+                </h1>
+                
+                <!-- Paragraph Text: Increased max-w for better readability on larger mobile screens -->
+                <p class="text-lg text-slate-400 max-w-xl leading-relaxed">
+                    This website is simply created to provide everyone their study needs easily. You can also message me on LinkedIn if you think that your faculty's study material is missing.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#course-selection-view" class="px-8 py-4 bg-white text-slate-950 rounded-full font-bold hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
+                        Browse Materials 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kushak-dohare-25b0a8362" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-slate-800 text-white rounded-full font-bold hover:bg-slate-700 transition-colors border border-slate-700 flex items-center justify-center">
+                        Contact Me
+                    </a>
+                </div>
+                <div class="flex gap-6 text-slate-400 pt-4">
+                    <!-- Social Links (kept for structure) -->
+                    <!-- GitHub/Generic Link (Placeholder) -->
+                    <a href="#" class="hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    </a>
+                    <!-- LinkedIn Link: UPDATED with user URL and target="_blank" -->
+                    <a href="https://www.linkedin.com/in/kushak-dohare-25b0a8362" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <!-- Email/Contact Link (Placeholder) -->
+                    <a href="#" class="hover:text-emerald-400 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Code snippet is hidden on mobile for cleaner look (hidden md:block) -->
+            <div class="relative hidden md:block animate-fade-in">
+                <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-emerald-500/20 rounded-full blur-3xl"></div>
+                <div class="relative bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                    <div class="flex gap-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="space-y-4 font-mono text-sm">
+                        <div class="flex">
+                            <span class="text-purple-400 mr-2">const</span>
+                            <span class="text-blue-400 mr-2">author</span>
+                            <span class="text-slate-400">=</span>
+                            <span class="text-slate-400 ml-2">{</span>
+                        </div>
+                        <div class="pl-6 text-emerald-400">
+                            name: <span class="text-orange-300">'Kushak Dohare'</span>,
+                        </div>
+                        <div class="pl-6 text-emerald-400">
+                            purpose: <span class="text-slate-300">['Study Needs', 'Resource Sharing']</span>,
+                        </div>
+                        <div class="pl-6 text-emerald-400">
+                            accessible: <span class="text-blue-400">true</span>
+                        </div>
+                        <div class="text-slate-400">}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Course Selection View -->
+    <section id="course-selection-view" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Choose your course</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+                <p class="text-slate-400 mt-4">Select your course to view the relevant study materials.</p>
+            </div>
+
+            <!-- Course Buttons: Use flex-wrap and gap for responsiveness -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="selectCourse('Btech')" data-course="Btech" class="w-full sm:w-auto px-6 py-3 bg-blue-600/20 text-blue-400 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors border border-blue-600/50 shadow-md shadow-blue-500/10">
+                    Btech
+                </button>
+                <button onclick="selectCourse('Mtech')" data-course="Mtech" class="w-full sm:w-auto px-6 py-3 bg-emerald-600/20 text-emerald-400 font-semibold rounded-lg hover:bg-emerald-600 hover:text-white transition-colors border border-emerald-600/50 shadow-md shadow-emerald-500/10">
+                    Mtech
+                </button>
+                <button onclick="selectCourse('Bsc')" data-course="Bsc" class="w-full sm:w-auto px-6 py-3 bg-purple-600/20 text-purple-400 font-semibold rounded-lg hover:bg-purple-600 hover:text-white transition-colors border border-purple-600/50 shadow-md shadow-purple-500/10">
+                    Bsc
+                </button>
+                <button onclick="selectCourse('BBA')" data-course="BBA" class="w-full sm:w-auto px-6 py-3 bg-red-600/20 text-red-400 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition-colors border border-red-600/50 shadow-md shadow-red-500/10">
+                    BBA
+                </button>
+                <button onclick="selectCourse('Homeopathy')" data-course="Homeopathy" class="w-full sm:w-auto px-6 py-3 bg-cyan-600/20 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-600 hover:text-white transition-colors border border-cyan-600/50 shadow-md shadow-cyan-500/10">
+                    Homeopathy
+                </button>
+                <button onclick="selectCourse('BFA')" data-course="BFA" class="w-full sm:w-auto px-6 py-3 bg-pink-600/20 text-pink-400 font-semibold rounded-lg hover:bg-pink-600 hover:text-white transition-colors border border-pink-600/50 shadow-md shadow-pink-500/10">
+                    BFA
+                </button>
+                <button onclick="selectCourse('Bcom')" data-course="Bcom" class="w-full sm:w-auto px-6 py-3 bg-indigo-600/20 text-indigo-400 font-semibold rounded-lg hover:bg-indigo-600 hover:text-white transition-colors border border-indigo-600/50 shadow-md shadow-indigo-500/10">
+                    Bcom
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Semester Selection View (Hidden initially) -->
+    <section id="semester-selection-view" class="hidden py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <!-- Course Name Display -->
+                <h2 id="selected-course-title" class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                    <!-- Course name will be inserted here by JS -->
+                </h2>
+                <!-- Semester Prompt -->
+                <p class="text-xl sm:text-2xl text-slate-300 mt-4 font-semibold">Please choose your semester</p>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <!-- Semester Buttons (1 to 8): Optimized for grid layout on mobile and desktop -->
+            <div id="semester-buttons" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-10 max-w-2xl mx-auto">
+                <button onclick="selectSemester(1)" data-sem="1" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 1
+                </button>
+                <button onclick="selectSemester(2)" data-sem="2" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 2
+                </button>
+                <button onclick="selectSemester(3)" data-sem="3" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 3
+                </button>
+                <button onclick="selectSemester(4)" data-sem="4" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 4
+                </button>
+                <button onclick="selectSemester(5)" data-sem="5" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 5
+                </button>
+                <button onclick="selectSemester(6)" data-sem="6" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 6
+                </button>
+                <button onclick="selectSemester(7)" data-sem="7" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 7
+                </button>
+                <button onclick="selectSemester(8)" data-sem="8" class="w-full h-24 sm:h-32 flex items-center justify-center bg-slate-800 text-white text-lg sm:text-xl font-bold rounded-xl hover:bg-blue-600 transition-all transform hover:scale-105 shadow-xl shadow-slate-800/30 border-b-4 border-blue-700 hover:border-blue-500">
+                    SEM 8
+                </button>
+            </div>
+            
+            <!-- Back Button -->
+            <div class="mt-12 flex justify-center">
+                <button onclick="goBackToCourses()" class="px-6 py-3 bg-slate-700 text-slate-200 font-semibold rounded-lg hover:bg-slate-600 transition-colors flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    Back to Courses
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Subject Selection View (Hidden initially, shown only for Btech Sem 1) -->
+    <section id="subject-selection-view" class="hidden py-20 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+                    Btech - Semester 1 Subjects
+                </h2>
+                <p class="text-xl text-slate-300 mt-4 font-semibold">Select the subject you need material for.</p>
+                <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <!-- Ancillary Courses -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-emerald-400 border-b border-emerald-400/30 pb-2">Ancillary Courses</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <button onclick="selectSubject('ECH 181')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-emerald-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-emerald-700">
+                        ECH 181
+                    </button>
+                    <button onclick="selectSubject('BBH 101')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-emerald-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-emerald-700">
+                        BBH 101
+                    </button>
+                </div>
+            </div>
+
+            <!-- Core Subjects -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-blue-400 border-b border-blue-400/30 pb-2">Core Subjects</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <button onclick="selectSubject('CHM 181')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        CHM 181
+                    </button>
+                    <button onclick="selectSubject('MAM 181')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        MAM 181
+                    </button>
+                    <button onclick="selectSubject('MEM 101')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        MEM 101
+                    </button>
+                    <button onclick="selectSubject('MEM 102')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        MEM 102
+                    </button>
+                    <button onclick="selectSubject('MEM 103')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        MEM 103
+                    </button>
+                    <button onclick="selectSubject('MEM 104')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        MEM 104
+                    </button>
+                    <button onclick="selectSubject('PHM 181')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        PHM 181
+                    </button>
+                    <button onclick="selectSubject('PHM 182')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        PHM 182
+                    </button>
+                    <button onclick="selectSubject('RDC 181')" class="w-full px-4 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors transform hover:scale-105 shadow-md border-b-2 border-blue-700">
+                        RDC 181
+                    </button>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="mt-12 flex justify-center">
+                <button onclick="goBackToSemesters()" class="px-6 py-3 bg-slate-700 text-slate-200 font-semibold rounded-lg hover:bg-slate-600 transition-colors flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    Back to Semesters
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section (Material List) -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- NEW: Subject Selection Navigation Panel -->
+            <div id="subject-nav-panel" class="hidden flex justify-between items-center mb-6 p-4 sm:p-6 bg-slate-800 rounded-xl border border-slate-700">
+                <div class="flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M4 19.5V15a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4.5"/><path d="M10 13V2.5l5 5-5 5"/></svg>
+                    <span class="text-lg font-semibold text-white">
+                        Current Subject: <span id="current-subject-display" class="text-blue-400"></span>
+                    </span>
+                </div>
+                <button onclick="goBackToSubjects()" class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-500 transition-colors flex items-center gap-2 transform hover:scale-[1.02]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l-4 4"/></svg>
+                    Change Subject
+                </button>
+            </div>
+            <!-- END NEW PANEL -->
+
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        <span id="materials-filter-title" class="text-blue-400">Latest</span> Study Materials
+                    </h2>
+                    <p id="materials-filter-subtitle" class="text-slate-400">Browse resources by faculty, subject, or year.</p>
+                </div>
+                <!-- Hidden on mobile to save space, only shown on medium and up -->
+                <button class="hidden md:flex items-center text-blue-400 hover:text-blue-300 transition-colors mt-4 sm:mt-0">
+                    View All Categories
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </button>
+            </div>
+
+            <!-- Project Cards: Uses a responsive grid (1, 2, or 3 columns) -->
+            <div id="material-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Placeholder Materials for Btech Sem 1 Subjects -->
+                
+                <!-- CHM 181 Material (Btech Sem 1 Core) -->
+                <div class="material-card group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800" data-course="Btech" data-sem="1" data-subject="CHM 181">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full flex items-center justify-center bg-slate-800 group-hover:scale-105 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-700"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M17 21v-4a2 2 0 0 0-2-2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-1"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">Engineering Chemistry Notes</h3>
+                                <p class="text-sm text-slate-500">Btech • Sem 1 • CHM 181</p>
+                            </div>
+                            <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Complete lecture notes on Thermodynamics, Electrochemistry, and Polymers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- MAM 181 Material (Btech Sem 1 Core) -->
+                <div class="material-card group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800" data-course="Btech" data-sem="1" data-subject="MAM 181">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full flex items-center justify-center bg-slate-800 group-hover:scale-105 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-700"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">Engineering Mathematics Problem Set</h3>
+                                <p class="text-sm text-slate-500">Btech • Sem 1 • MAM 181</p>
+                            </div>
+                            <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Practice questions and solutions for Calculus and Differential Equations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ECH 181 Material (Btech Sem 1 Ancillary) -->
+                <div class="material-card group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800" data-course="Btech" data-sem="1" data-subject="ECH 181">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full flex items-center justify-center bg-slate-800 group-hover:scale-105 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-700"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">Environmental Science E-Book</h3>
+                                <p class="text-sm text-slate-500">Btech • Sem 1 • ECH 181</p>
+                            </div>
+                            <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Digital copy of the required textbook for Ancillary Environmental Chemistry.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Project 4 (B.Tech Sem 4 - General fallback) -->
+                <div class="material-card group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800" data-course="Btech" data-sem="4" data-subject="">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full flex items-center justify-center bg-slate-800 group-hover:scale-105 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-700"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">Computer Science Notes (Default)</h3>
+                                <p class="text-sm text-slate-500">B.Tech • Semester 4 • Data Structures</p>
+                            </div>
+                            <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Detailed, handwritten notes covering key topics and algorithms for the upcoming midterms.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 5 (B.Sc Sem 1 - General fallback) -->
+                <div class="material-card group relative bg-slate-900 rounded-xl overflow-hidden border border-slate-800" data-course="Bsc" data-sem="1" data-subject="">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10"></div>
+                        <div class="w-full h-full flex items-center justify-center bg-slate-800 group-hover:scale-105 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-700"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">Physics Lab Manual (Default)</h3>
+                                <p class="text-sm text-slate-500">B.Sc • First Year • Practical Experiments</p>
+                            </div>
+                            <a href="#" class="p-2 bg-slate-800 rounded-full hover:bg-blue-600 hover:text-white transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">
+                            A complete collection of mandatory lab reports and observation templates for easy submission.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Message when no materials are found for selection -->
+            <div id="no-materials-message" class="hidden text-center p-12 bg-slate-800 rounded-xl border border-slate-700 mt-10">
+                <p class="text-xl text-slate-400 font-semibold">
+                    Sorry, we don't have materials for <span id="no-materials-course-sem" class="text-blue-400">your selection</span> yet.
+                </p>
+                <p class="text-sm text-slate-500 mt-2">
+                    Please contact Kushak to contribute or request these resources.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-slate-900 to-slate-950 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Contribute or Request Material</h2>
+            <p class="text-slate-400 mb-12 max-w-2xl mx-auto">
+                If you have material to share or a resource that is missing, please let me know. Connect with me on LinkedIn!
+            </p>
+            
+            <div class="bg-slate-800/50 p-8 md:p-12 rounded-2xl border border-slate-700/50 text-left">
+                <!-- Disclaimer for disabled button -->
+                <div class="mb-6 p-4 rounded-lg bg-yellow-900/50 border border-yellow-700/50 text-yellow-300">
+                    <p class="font-semibold mb-1">
+                        Heads up! The direct messaging facility on this website will start soon.
+                    </p>
+                    <p class="text-sm">
+                        Right now, please <a href="https://www.linkedin.com/in/kushak-dohare-25b0a8362" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline font-medium">contact me directly on LinkedIn</a> to send material or submit requests. Thank you!
+                    </p>
+                </div>
+
+                <form class="space-y-6" onsubmit="event.preventDefault();">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Inputs stacked on mobile -->
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                            <input 
+                                type="text" 
+                                class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                                placeholder="Your Name (Currently disabled)"
+                                disabled
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                            <input 
+                                type="email" 
+                                class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                                placeholder="you@example.com (Currently disabled)"
+                                disabled
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Request/Message</label>
+                        <textarea 
+                            rows="4"
+                            class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
+                            placeholder="I'd like to contribute notes for... (Currently disabled)"
+                            disabled
+                        ></textarea>
+                    </div>
+                    <!-- Disabled Button -->
+                    <button disabled class="w-full btn-disabled text-white font-bold py-4 rounded-lg">
+                        Send Message (Facility starting soon)
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+        <p>© 2024 Kushak Dohare. All rights reserved.</p>
+    </footer>
+    
+    <!-- Custom Message Modal (for a better user experience than alert) -->
+    <div id="custom-message-modal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-75 items-center justify-center z-[100] p-4 backdrop-blur-sm animate-fade-in">
+        <div class="bg-slate-800 rounded-xl shadow-2xl p-6 w-full max-w-sm border border-slate-700 animate-slide-down">
+            <h3 class="text-xl font-bold text-blue-400 mb-3" id="modal-title">Selection Confirmed</h3>
+            <p class="text-slate-300 mb-6" id="modal-content"></p>
+            <button id="close-message-btn" onclick="document.getElementById('custom-message-modal').classList.add('hidden'); document.getElementById('custom-message-modal').classList.remove('flex');" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-500 transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Global State ---
+        let currentCourse = null;
+        let currentSemester = null;
+        let currentSubject = null;
+
+        // --- DOM Elements ---
+        const courseSelectionView = document.getElementById('course-selection-view');
+        const semesterSelectionView = document.getElementById('semester-selection-view');
+        const subjectSelectionView = document.getElementById('subject-selection-view');
+        const projectsSection = document.getElementById('projects');
+        const contactSection = document.getElementById('contact');
+        const materialCards = document.querySelectorAll('.material-card');
+        const materialsFilterTitle = document.getElementById('materials-filter-title');
+        const materialsFilterSubtitle = document.getElementById('materials-filter-subtitle');
+        const noMaterialsMessage = document.getElementById('no-materials-message');
+        const noMaterialsCourseSem = document.getElementById('no-materials-course-sem');
+        
+        // NEW DOM elements for subject navigation
+        const subjectNavPanel = document.getElementById('subject-nav-panel');
+        const currentSubjectDisplay = document.getElementById('current-subject-display');
+
+
+        // --- Utility Functions ---
+
+        // Function to display a custom message box
+        function showMessage(title, message) {
+            const modal = document.getElementById('custom-message-modal');
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-content').textContent = message;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // Function to filter and display materials
+        function filterMaterials() {
+            let foundMaterials = false;
+            
+            // Hide the subject navigation panel by default
+            subjectNavPanel.classList.add('hidden');
+
+            // Default (Latest) view
+            if (!currentCourse) {
+                materialCards.forEach(card => card.style.display = 'block');
+                materialsFilterTitle.textContent = 'Latest';
+                materialsFilterSubtitle.textContent = 'Browse resources by faculty, subject, or year.';
+                noMaterialsMessage.classList.add('hidden');
+                return;
+            }
+
+            // Apply filter
+            materialCards.forEach(card => {
+                const cardCourse = card.getAttribute('data-course');
+                const cardSem = parseInt(card.getAttribute('data-sem'), 10);
+                const cardSubject = card.getAttribute('data-subject');
+                
+                let matchesCourseSem = cardCourse === currentCourse && cardSem === currentSemester;
+                let matchesSubject = !currentSubject || cardSubject === currentSubject;
+
+                if (matchesCourseSem && matchesSubject) {
+                    card.style.display = 'block';
+                    foundMaterials = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update header based on filter
+            if (currentCourse && currentSubject) {
+                // Show the subject navigation panel
+                subjectNavPanel.classList.remove('hidden', 'flex'); // Ensure 'flex' is present on md+
+                subjectNavPanel.classList.add('flex');
+                currentSubjectDisplay.textContent = currentSubject;
+
+                materialsFilterTitle.textContent = `${currentSubject} Materials`;
+                materialsFilterSubtitle.textContent = `Showing resources for ${currentCourse} - SEM ${currentSemester} - ${currentSubject}.`;
+                noMaterialsCourseSem.textContent = `${currentCourse} - SEM ${currentSemester} - ${currentSubject}`;
+            } else if (currentCourse) {
+                materialsFilterTitle.textContent = `${currentCourse} - SEM ${currentSemester}`;
+                materialsFilterSubtitle.textContent = `Showing relevant study materials for your selected course.`;
+                noMaterialsCourseSem.textContent = `${currentCourse} - SEM ${currentSemester}`;
+            }
+            
+            // Show message if no materials found for the current selection
+            if (currentCourse && !foundMaterials) {
+                noMaterialsMessage.classList.remove('hidden');
+            } else {
+                noMaterialsMessage.classList.add('hidden');
+            }
+        }
+        
+        // --- Navigation Logic ---
+
+        // 1. Function to navigate to the semester selection view
+        function selectCourse(courseName) {
+            currentCourse = courseName;
+            currentSemester = null;
+            currentSubject = null; // Reset subject when selecting a new course
+            
+            // Update the title
+            document.getElementById('selected-course-title').textContent = courseName;
+            
+            // Hide non-relevant sections and show the semester selection
+            courseSelectionView.classList.add('hidden');
+            subjectSelectionView.classList.add('hidden');
+            projectsSection.classList.add('hidden');
+            contactSection.classList.add('hidden');
+            
+            semesterSelectionView.classList.remove('hidden');
+
+            // Scroll to the top of the new view
+            semesterSelectionView.scrollIntoView({ behavior: 'smooth' });
+        }
+        window.selectCourse = selectCourse; // Expose to HTML
+
+        // 2. Function to navigate from semester selection to subject or materials view
+        function selectSemester(semNumber) {
+            currentSemester = semNumber;
+            currentSubject = null; // Reset subject when selecting a new semester
+            
+            // Check for specific routing (Btech SEM 1 -> Subject Selection)
+            if (currentCourse === 'Btech' && semNumber === 1) {
+                semesterSelectionView.classList.add('hidden');
+                projectsSection.classList.add('hidden');
+                contactSection.classList.add('hidden');
+                subjectSelectionView.classList.remove('hidden');
+                
+                // Scroll to the top of the new view
+                subjectSelectionView.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            // Default routing for all other courses/semesters: go straight to materials list
+            semesterSelectionView.classList.add('hidden');
+            subjectSelectionView.classList.add('hidden');
+            
+            projectsSection.classList.remove('hidden');
+            contactSection.classList.remove('hidden');
+
+            // Apply the filter logic and scroll
+            filterMaterials();
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+            
+            showMessage(
+                "Loading Materials", 
+                `Loading materials for ${currentCourse} - Semester ${currentSemester}. Filter applied below.`
+            );
+        }
+        window.selectSemester = selectSemester; // Expose to HTML
+        
+        // 3. Function to navigate from subject selection to materials view
+        function selectSubject(subjectCode) {
+            currentSubject = subjectCode;
+            
+            // Hide the subject selection view
+            subjectSelectionView.classList.add('hidden');
+            
+            // Show the main content sections (materials and contact)
+            projectsSection.classList.remove('hidden');
+            contactSection.classList.remove('hidden');
+
+            // Apply the filter logic
+            filterMaterials();
+
+            // Scroll to the materials section
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Show confirmation message
+            showMessage(
+                "Loading Materials", 
+                `Filter set for ${currentCourse} - SEM ${currentSemester} - ${currentSubject}.`
+            );
+        }
+        window.selectSubject = selectSubject; // Expose to HTML
+        
+        // NEW 4. Function to go back from materials list to subject selection (Btech Sem 1 only)
+        function goBackToSubjects() {
+            currentSubject = null;
+            
+            projectsSection.classList.add('hidden');
+            contactSection.classList.add('hidden');
+            
+            subjectSelectionView.classList.remove('hidden');
+            
+            // Reset filters to remove subject filter and scroll to the subject view
+            filterMaterials();
+            subjectSelectionView.scrollIntoView({ behavior: 'smooth' });
+        }
+        window.goBackToSubjects = goBackToSubjects; // Expose to HTML
+
+        // 5. Function to go back from subject view to semester view
+        function goBackToSemesters() {
+            currentSubject = null;
+            currentSemester = null; // Keep the course selected, but reset sem and subject
+            
+            subjectSelectionView.classList.add('hidden');
+            projectsSection.classList.add('hidden');
+            contactSection.classList.add('hidden');
+
+            semesterSelectionView.classList.remove('hidden');
+            semesterSelectionView.scrollIntoView({ behavior: 'smooth' });
+        }
+        window.goBackToSemesters = goBackToSemesters; // Expose to HTML
+
+        // 6. Function to go back to the course selection view (from semester view)
+        function goBackToCourses() {
+            currentCourse = null;
+            currentSemester = null;
+            currentSubject = null;
+
+            // Hide the selection views
+            semesterSelectionView.classList.add('hidden');
+            subjectSelectionView.classList.add('hidden');
+            
+            // Show the course selection and main content (projects/contact)
+            courseSelectionView.classList.remove('hidden');
+            projectsSection.classList.remove('hidden');
+            contactSection.classList.remove('hidden');
+            
+            // Reset filters to show "Latest"
+            filterMaterials();
+
+            // Scroll to the course selection view
+            courseSelectionView.scrollIntoView({ behavior: 'smooth' });
+        }
+        window.goBackToCourses = goBackToCourses; // Expose to HTML
+
+        // --- Mobile Menu Logic (Unchanged) ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            iconMenu.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!menu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // --- Navbar Scroll Effect (Unchanged) ---
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-slate-950/90', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'py-4');
+                navbar.classList.remove('bg-transparent', 'py-6');
+            } else {
+                navbar.classList.add('bg-transparent', 'py-6');
+                navbar.classList.remove('bg-slate-950/90', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'py-4');
+            }
+        });
+
+        // --- Active Section Highlighting (Modified for new routing) ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNav() {
+            let scrollY = window.scrollY;
+            
+            // Only highlight if we are not in the selection views
+            if (semesterSelectionView.classList.contains('hidden') && subjectSelectionView.classList.contains('hidden')) {
+                sections.forEach(current => {
+                    // Skip sections that are hidden for routing
+                    if (current.id === 'semester-selection-view' || current.id === 'subject-selection-view' || current.id === 'home' && current.style.display === 'none') return;
+                    
+                    const sectionHeight = current.offsetHeight;
+                    const sectionTop = current.offsetTop - 150; // Offset for navbar
+                    const sectionId = current.getAttribute('id');
+                    
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-blue-400');
+                            link.classList.add('text-slate-300');
+                            if (link.getAttribute('href').endsWith(sectionId)) {
+                                link.classList.add('text-blue-400');
+                                link.classList.remove('text-slate-300');
+                            }
+                        });
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('scroll', highlightNav);
+        
+        // Initial setup: filter materials to show "Latest" (no filter applied)
+        window.onload = () => {
+            filterMaterials();
+        };
+
+    </script>
+</body>
+</html>
